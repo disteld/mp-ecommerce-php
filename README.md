@@ -2,7 +2,7 @@
 
 Este e-commerce de ejemplo será la base para la integración de MercadoPago con `php`.
 
-## Antes de comenzars
+## Antes de comenzar
 
 Esta aplicación debe estar accesible mediante un dominio público en internet antes de comenzar con la integración y para ello usaremos [Heroku](https://heroku.com).
 
