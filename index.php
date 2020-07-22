@@ -100,7 +100,7 @@
                                                             <span class="as-search-accordion-title">Marca</span>
                                                         </span>
                                                         <span class="icon icon-plus as-accordion-plusicon">
-                                                            <span class="a11y">Marca</span>
+                                                            <span class="a11y">Marca1</span>
                                                         </span>
                                                     </button>
                                                 </div>
