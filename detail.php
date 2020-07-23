@@ -53,8 +53,10 @@
 
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
+    $item->id = "1234";
     $item->title = 'Producto 1';
     $item->quantity = 1;
+    $item->picture_url="";
     $item->unit_price = 300; //Detalle aca, si tu previamente tienes configurado en tu cuenta que eres de algun pais que no maneje decimales en el valor, el valor debe ser entero, sino mercadopago arrojara error
     $preference->items = array($item);
     $preference->save();
