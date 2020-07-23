@@ -11,7 +11,7 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-
+<script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
     <link rel="stylesheet" href="./assets/category.css" media="screen, print">
@@ -47,6 +47,7 @@
     include_once __DIR__ . '/vendor/autoload.php';  //Aqui coloca la ruta en donde descargaste el sdk de mercadopago
   // require __DIR__ .  '/vendor/autoload.php';
    MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398'); // Ya que vas a hacer pruebas de pago, aqui tu access token de prueba, luego puedes agregar el token de produccion
+MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
@@ -54,12 +55,61 @@
     // Crea un ítem en la preferencia
     $item = new MercadoPago\Item();
     $item->id = "1234";
-    $item->title = 'Producto 1';
+    $item->title = $_POST['title'];
     $item->quantity = 1;
-    $item->picture_url='';
-    $item->unit_price = 300; //Detalle aca, si tu previamente tienes configurado en tu cuenta que eres de algun pais que no maneje decimales en el valor, el valor debe ser entero, sino mercadopago arrojara error
+    $item->picture_url = $_POST['img'];
+    $item->unit_price = $_POST['price']; //Detalle aca, si tu previamente tienes configurado en tu cuenta que eres de algun pais que no maneje decimales en el valor, el valor debe ser entero, sino mercadopago arrojara error
     $preference->items = array($item);
+	
+	$preference->payment_methods = array(
+  "excluded_payment_methods" => array(
+    array("id" => "amex")
+  ),
+  "excluded_payment_types" => array(
+    array("id" => "atm")
+  ),
+  "installments" => 6
+);
+
+	$preference->back_urls = array(
+                        "success" => "https://ddistel-mp-commerce-php.herokuapp.com/success.php",
+                        "failure" => "https://ddistel-mp-commerce-php.herokuapp.com/failure.php",
+                        "pending" => "https://ddistel-mp-commerce-php.herokuapp.com/pending.php"
+                    );
+	 $preference->external_reference = "ddistel@jotafi.com.ar";
+	 $preference->notification_url = "https://ddistel-mp-commerce-php.herokuapp.com/webhook.php"
+		
+	$payer = new MercadoPago\Payer();
+	$payer->name = "Lalo Landa";
+	$payer->email = "test_user_63274575@testuser.com";
+	
+	//$phone = new MercadoPago\Phone();
+	//$phone->area_code = "11";
+	//$phone->number = "22223333";
+	$payer->phone = array(
+                        "area_code" => "11",
+                        "number" => "22223333"
+                    );
+	
+	//$address = new MercadoPago\Address();
+	//$address->zip_code = "111";
+	//$address->street_name = "False";
+	//$address->street_number = "123";
+	
+	$payer->address = array(
+                        "zip_code" => "111",
+                        "street_name" => "False",
+                       "street_number" => "123"
+                    );
+	
+	$preference->payer = $payer;	
+			
     $preference->save();
+	
+	  
+  echo "\n";
+  
+  echo "PaymentId: " . $preference->id . "\n";
 
     ?>
     
@@ -151,12 +201,16 @@
                                         </h3>
                                     </div>
                                     <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
-                                    <form action="/procesar-pago" method="POST">
-                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php 
+                                <!--    <form action="/procesar-pago" method="POST">
+                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php /*
     try{echo $preference-id;}catch (Exception $e) {
-    echo 'Excepción capturada: ',  $e->getMessage(), "\n";} ?>">
+    echo 'Excepción capturada: ',  $e->getMessage(), "\n";} */?>">
+	
+	
                                      </script>
-                                    </form>
+                                    </form>-->
+									
+									<a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
                                 </div>
                             </div>
                         </div>
