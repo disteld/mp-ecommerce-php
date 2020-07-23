@@ -45,7 +45,7 @@
   <?php
 
     include_once __DIR__ . '/vendor/autoload.php';  //Aqui coloca la ruta en donde descargaste el sdk de mercadopago
-  /*  require __DIR__ .  '/vendor/autoload.php';
+  // require __DIR__ .  '/vendor/autoload.php';
     MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398'); // Ya que vas a hacer pruebas de pago, aqui tu access token de prueba, luego puedes agregar el token de produccion
 
     // Crea un objeto de preferencia
@@ -58,7 +58,7 @@
     $item->unit_price = 300; //Detalle aca, si tu previamente tienes configurado en tu cuenta que eres de algun pais que no maneje decimales en el valor, el valor debe ser entero, sino mercadopago arrojara error
     $preference->items = array($item);
     $preference->save();
-*/
+
     ?>
     
     <div class="stack">
