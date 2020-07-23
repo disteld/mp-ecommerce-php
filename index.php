@@ -77,7 +77,7 @@
 
                                     <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
                                         <h2 class=" as-filter-button-text">
-                                            Smartphonesaa
+                                            Smartphones
                                         </h2>
                                     </button>
 
@@ -100,7 +100,7 @@
                                                             <span class="as-search-accordion-title">Marca</span>
                                                         </span>
                                                         <span class="icon icon-plus as-accordion-plusicon">
-                                                            <span class="a11y">Marca1</span>
+                                                            <span class="a11y">Marca</span>
                                                         </span>
                                                     </button>
                                                 </div>
