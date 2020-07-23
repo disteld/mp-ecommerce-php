@@ -43,7 +43,8 @@
 
 <body class="as-theme-light-heroimage">
 <?php 
- MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398'); 
+	include_once "vendor/autoload.php"; 
+	MercadoPago\SDK::setAccessToken('APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398'); 
 
     // Crea un objeto de preferencia
     $preference = new MercadoPago\Preference();
