@@ -56,7 +56,7 @@
     $item->id = "1234";
     $item->title = 'Producto 1';
     $item->quantity = 1;
-    $item->picture_url="";
+    $item->picture_url='';
     $item->unit_price = 300; //Detalle aca, si tu previamente tienes configurado en tu cuenta que eres de algun pais que no maneje decimales en el valor, el valor debe ser entero, sino mercadopago arrojara error
     $preference->items = array($item);
     $preference->save();
@@ -152,7 +152,8 @@
                                     </div>
                                     <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
                                     <form action="/procesar-pago" method="POST">
-                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php try{echo $preference-id;}catch (Exception $e) {
+                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php 
+    try{echo $preference-id;}catch (Exception $e) {
     echo 'Excepción capturada: ',  $e->getMessage(), "\n";} ?>">
                                      </script>
                                     </form>
