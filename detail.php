@@ -43,7 +43,6 @@
 
 <body class="as-theme-light-heroimage">
 
-
     <div class="stack">
         
         <div class="as-search-wrapper" role="main">
@@ -131,13 +130,7 @@
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
-									<form action="/procesar-pago" method="POST">
-									  <script
-									   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-									   data-preference-id="<?php echo $preference->id; ?>">
-									  </script>
-									</form>
+                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
                                 </div>
                             </div>
                         </div>
