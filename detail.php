@@ -152,7 +152,8 @@
                                     </div>
                                     <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
                                     <form action="/procesar-pago" method="POST">
-                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php echo $preference-id;?>">
+                                        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" data-preference-id="<?php try{echo $preference-id;}catch (Exception $e) {
+    echo 'Excepción capturada: ',  $e->getMessage(), "\n";} ?>">
                                      </script>
                                     </form>
                                 </div>
