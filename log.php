@@ -3,3 +3,4 @@
 	$f = fopen('raw.txt', 'a');
 	fwrite($f, $data);
 	fclose($f);
+file_put_contents("php://stderr",$data);
