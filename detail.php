@@ -131,7 +131,7 @@
                                             $<?php echo $_POST['price'] ?>
                                         </h3>
                                     </div>
-                                   
+                                   <a href="<?php echo $preference->init_point; ?>">Pagar la compra</a>
                                 </div>
                             </div>
                         </div>
