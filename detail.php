@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="./assets/category.css" media="screen, print">
 
     <link rel="stylesheet" href="./assets/merch-tools.css" media="screen, print">
-
+  <script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
     <link rel="stylesheet" href="./assets/fonts" media="">
     <style>
         .as-filter-button-text {
